@@ -9,7 +9,8 @@
 # puts "destroying contacts..."
 Contact.destroy_all
 
-# puts "creating 1 contact..."
+puts "creating 100 contact..."
 
-#     Contact.create( first_name: "Kristine" , last_name: "McBride", email: "kristine@gmail.com",  phone_number: "652 123 150")
-
+100.times do
+  Contact.create( first_name: Faker::Name.first_name  , last_name: Faker::Name.last_name , email: Faker::Internet.email,  phone_number: Faker::PhoneNumber.phone_number)
+end
