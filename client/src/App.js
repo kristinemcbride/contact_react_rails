@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import Header from './Components/Header';
 import Contact from './Components/Contact';
-import axios from 'axios';
 import NewContactForm from './Components/NewContactForm';
 import EditContactForm from './Components/EditContactForm';
 
@@ -12,7 +12,11 @@ class App extends Component{
       contacts: [],
       editingContactId: null
     }
-
+    //sorts data by key
+  handleSort(data){
+    data.sort((a, b) => (a.id > b.id) ? 1 : -1)
+    return data
+  }
 //WAITS FOR THE APP TO FULLY LOAD
   componentDidMount() {
 // headers formats the code as JSON
@@ -23,8 +27,7 @@ class App extends Component{
     };
     axios.get('/api/v1/contacts', {headers})
       .then(response => {
-        //sorts data by key
-        const sortedData = response.data.sort((a, b) => (a.id > b.id) ? 1 : -1)
+        const sortedData = this.handleSort(response.data)
         this.setState({
           contacts: sortedData
         })
@@ -82,7 +85,7 @@ class App extends Component{
       const newList = this.state.contacts.filter((contact) => contact.id !== updatedContact.id)
       newList.push(updatedContact)
       //sorts contact by key, resets the contacts state with the updated info & changes the editingContactId state back to null
-      const sortedData = newList.sort((a, b) => (a.id > b.id) ? 1 : -1)
+      const sortedData = this.handleSort(newList)
       this.setState({
         contacts: sortedData,
         editingContactId: null
