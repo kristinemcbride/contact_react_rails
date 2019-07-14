@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`My first snapshot test testing app button 1`] = `
+<div
+  className="contacts-container"
+>
+  <div
+    className="header"
+  >
+    <span>
+      <h1>
+        <i
+          className="fas fa-phone-square-alt"
+        />
+         FactorialContacts
+      </h1>
+    </span>
+    <span
+      className="new-contact-btn"
+    >
+      Add Contact
+    </span>
+  </div>
+  <div
+    className="contacts-wrapper"
+  >
+    <div
+      className="contact-cards"
+    />
+    <div
+      className="contact-form"
+      id="contact-form"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <div
+          className="inputs"
+        >
+          <label>
+            First Name
+          </label>
+          <input
+            required={true}
+            type="text"
+          />
+          <label>
+            Last Name
+          </label>
+          <input
+            required={true}
+            type="text"
+          />
+          <label>
+            Phone Number
+          </label>
+          <input
+            required={true}
+            type="text"
+          />
+          <label>
+            Email
+          </label>
+          <input
+            required={true}
+            type="text"
+          />
+        </div>
+        <div
+          className="submit-div"
+        >
+          <button
+            className="new-contact-submit-btn"
+          >
+            Add Contact
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,89 @@
+.new-contact-btn {
+  background-color: $accent-color;
+  color: $backgroud-light;
+  font-size: 16px;
+  border-radius: 32px;
+  padding: 0px 24px;
+  font-weight: bold;
+  line-height: 42px;
+  border: 2px solid white;
+
+  @include not-desktop {
+    font-size: 12px;
+    padding: 0px 16px;
+    line-height: 32px;
+  }
+
+  @include sm-phone {
+    font-size: 12px;
+    padding: 0px 16px;
+    line-height: 28px;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.new-contact-btn:hover{
+  opacity: 0.6;
+}
+
+.delete-btn {
+  color: $accent-color;
+  border: none;
+  font-size: 28px;
+  margin-right: 16px;
+
+}
+
+.delete-btn:hover{
+  opacity: 0.8;
+}
+
+.edit-btn {
+  background-color: $accent-color;
+  color: $backgroud-light;
+  border-radius: 16px;
+  font-size: 12px;
+  padding: 6px 16px;
+
+}
+
+.edit-btn:hover{
+  opacity: 0.8;
+}
+
+.contact-btns{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  align-content: center;
+  margin-top: 16px;
+
+}
+
+.new-contact-submit-btn{
+  background-color: $accent-color;
+  color: $backgroud-light;
+  font-size: 20px;
+  border-radius: 32px;
+  padding: 0px 48px;
+  font-weight: bold;
+  line-height: 48px;
+  border: 2px solid white;
+  margin-top: 32px;
+
+  @include sm-phone {
+     font-size: 16px;
+    padding: 0px 40px;
+    line-height: 32px;
+  }
+}
+
+
+.new-contact-submit-btn:hover{
+  opacity: 0.8;
+}

@@ -1,0 +1,35 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-family: $primary-font;
+  background-color: $accent-color;
+  font-weight: bold;
+  align-items: center;
+  padding: 16px 42px;
+  box-shadow:2px 2px 4px 2px #b3aeae;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  color: $backgroud-light;
+  width: 100%;
+  h1 {
+    font-size: 32px;
+    @include tablet {
+      font-size: 24px;
+    }
+
+    @include phone {
+      font-size: 16px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
+  a:hover {
+    opacity: 0.8;
+  }
+}
+

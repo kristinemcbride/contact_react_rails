@@ -1,0 +1,29 @@
+$sm-phone: 440px;
+$tablet: 700px;
+$desktop: 1100px;
+
+
+
+@mixin tablet {
+  @media (min-width: #{$tablet}) and (max-width: #{$desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin phone {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin sm-phone {
+  @media (max-width: #{$sm-phone}) {
+    @content;
+  }
+}
+
+@mixin not-desktop {
+  @media (min-width: #{$sm-phone}) and (max-width: #{$desktop - 1px}) {
+    @content;
+  }
+}
