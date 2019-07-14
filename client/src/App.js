@@ -5,7 +5,6 @@ import Contact from './Components/Contact';
 import NewContactForm from './Components/NewContactForm';
 import EditContactForm from './Components/EditContactForm';
 
-
 class App extends Component{
 // sets the default states
   state = {
