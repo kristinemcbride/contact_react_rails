@@ -12,15 +12,6 @@
   z-index: 1;
   color: $backgroud-light;
   width: 100%;
-  h1 {
-    font-size: 32px;
-    @include tablet {
-      font-size: 24px;
-    }
-    @include phone {
-      font-size: 16px;
-    }
-  }
 
   a {
     text-decoration: none;

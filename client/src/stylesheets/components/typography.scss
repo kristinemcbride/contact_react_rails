@@ -1,0 +1,31 @@
+h1 {
+  font-size: 32px;
+  @include tablet {
+    font-size: 24px;
+  }
+  @include phone {
+    font-size: 16px;
+  }
+}
+
+h3 {
+  font-family: $primary-font;
+  color: $accent-color;
+  font-size: 24px;
+  margin-bottom: 8px;
+  @include sm-phone {
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+}
+
+p {
+  font-size: 16px;
+  font-family: $secondary-font;
+  .fas {
+    color: $accent-color;
+  }
+  @include sm-phone {
+    font-size: 12px;
+  }
+}
