@@ -1,4 +1,5 @@
 import React from "react";
+//HEADER COMPONENT
 const Header = () =>
   <div className="header">
     <span><h1><i className="fas fa-phone-square-alt"></i> FactorialContacts</h1></span>

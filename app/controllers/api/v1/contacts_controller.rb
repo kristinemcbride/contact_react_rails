@@ -44,7 +44,6 @@ class Api::V1::ContactsController < ActionController::Base
   end
 
   def contact_params
-    binding.pry if $debug
     params.require(:contact).permit(:first_name, :last_name, :email, :phone_number)
   end
 end
