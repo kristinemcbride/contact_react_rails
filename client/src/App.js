@@ -7,35 +7,36 @@ import EditContactForm from './Components/EditContactForm';
 
 
 class App extends Component{
-
+// sets the default states
   state = {
       contacts: [],
       editingContactId: null
     }
 
+//WAITS FOR THE APP TO FULLY LOAD
   componentDidMount() {
-// waits until app is fully loaded then excecutes code withing
-      const headers = {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-        };
-        axios.get('/api/v1/contacts', {headers})
-        .then(response => {
-          const sortedData = response.data.sort((a, b) => (a.id > b.id) ? 1 : -1)
-          console.log(sortedData)
-            this.setState({
-                contacts: sortedData
-            })
+// headers formats the code as JSON
+    const headers = {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*'
+    };
+    axios.get('/api/v1/contacts', {headers})
+      .then(response => {
+        //sorts data by key
+        const sortedData = response.data.sort((a, b) => (a.id > b.id) ? 1 : -1)
+        this.setState({
+          contacts: sortedData
         })
-        .catch(error => alert(error.response))
+      })
+      .catch(error => alert(error.response))
     }
 
-
+//CREATE A NEW CONTACT
   addNewContact = (first_name, last_name, phone_number, email) => {
     axios.post('/api/v1/contacts', { contact: { first_name, last_name, phone_number, email } })
       .then(response => {
-        console.log(response)
+        //creates a copy of the contacts to change the state and add new data
         const contacts = [...this.state.contacts, response.data]
         this.setState({ contacts })
       })
@@ -44,9 +45,11 @@ class App extends Component{
       })
   }
 
+//DELETE A CONTACT
   removeContact = (id) => {
     axios.delete('/api/v1/contacts/' + id)
       .then(response => {
+        //filter out the contact whose ID matches the one selected
         const contacts = this.state.contacts.filter(
           contact => contact.id !== id
         )
@@ -55,13 +58,15 @@ class App extends Component{
       .catch(error => console.log(error.response))
   }
 
+  //EDIT A CONTACT
+  //changes the state of editing contact from null to the ID
   editingContact = (id) => {
     this.setState({
       editingContactId: id
     })
   }
 
-
+  //will run for the contact whose ID matches the editingContactId
   editContact = (id, first_name, last_name, phone_number, email) => {
     axios.put('/api/v1/contacts/' + id, {
       contact: {
@@ -71,20 +76,25 @@ class App extends Component{
         phone_number
       }
     })
-      .then(response => {
-        const updatedContact = response.data
-        const newList = this.state.contacts.filter((item) => item.id !== updatedContact.id)
-        newList.push(updatedContact)
-        const sortedData = newList.sort((a, b) => (a.id > b.id) ? 1 : -1)
-        this.setState({
-          contacts: sortedData,
-          editingContactId: null
-
-        })
+    .then(response => {
+      const updatedContact = response.data
+      //filters out the contact whose ID was selected and replaces it with a contact that has the updated info
+      const newList = this.state.contacts.filter((contact) => contact.id !== updatedContact.id)
+      newList.push(updatedContact)
+      //sorts contact by key, resets the contacts state with the updated info & changes the editingContactId state back to null
+      const sortedData = newList.sort((a, b) => (a.id > b.id) ? 1 : -1)
+      this.setState({
+        contacts: sortedData,
+        editingContactId: null
       })
-      .catch(error => alert("Invalid email, please try again."));
+    })
+    .catch(error => alert("Invalid email, please try again."));
   }
 
+  //renders all components to the browser. Header containers logo & add a contact button
+  // contact-cards is a conditional statement rendering the contact info if editContactId is not equal to the contact id.
+  // otherwise it will render the edit contact form.
+  //The new contact add form will render at the bottom of the page
   render(){
     return(
     <div className="contacts-container">
