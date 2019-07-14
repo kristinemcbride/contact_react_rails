@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const NewContactForm = ({onNewContact = f => f}) => {
   let first_name, last_name, phone_number, email
   const submit = e => {
@@ -12,6 +13,7 @@ const NewContactForm = ({onNewContact = f => f}) => {
   }
 
   return (
+
     <div className="contact-form" id="contact-form">
       <form onSubmit={submit}>
         <div className="inputs">

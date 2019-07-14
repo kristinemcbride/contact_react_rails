@@ -15,11 +15,15 @@ exports[`My first snapshot test testing app button 1`] = `
          FactorialContacts
       </h1>
     </span>
-    <span
-      className="new-contact-btn"
+    <a
+      href="#contact-form"
     >
-      Add Contact
-    </span>
+      <button
+        className="new-contact-btn"
+      >
+        Add Contact
+      </button>
+    </a>
   </div>
   <div
     className="contacts-wrapper"
