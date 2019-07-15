@@ -2,17 +2,16 @@ require 'rails_helper'
 require 'pry-byebug'
 require "json"
 
-
 RSpec.describe Api::V1::ContactsController do
   let!(:contacts) { create_list(:contact, 10) }
   let(:contact_id) { contacts.first.id }
 
-#parsing data into JSON format
+  # PARSING DATA
   def json
     JSON.parse(response.body)
   end
 
-  #Testing listing contacts
+  # TESTING INDEX
   describe "GET #index" do
     before { get :index }
 
@@ -25,7 +24,8 @@ RSpec.describe Api::V1::ContactsController do
       expect(json.size).to eq(10)
     end
   end
-  #Testing show for 1 contact
+
+  # TESTING SHOW
   describe "GET #show" do
     before do
       get :show, params: { id: contacts.first.id, first_name: "toto" }
@@ -42,7 +42,7 @@ RSpec.describe Api::V1::ContactsController do
     end
   end
 
-  #Testing contact create
+  # TESTING CREATE
   describe 'POST #create' do
     context 'when the request is valid' do
       before do
@@ -70,9 +70,8 @@ RSpec.describe Api::V1::ContactsController do
     end
   end
 
-  #Testing update for contact
+  # TESTING UPDATE
   describe 'PATCH #update' do
-    context 'when the record exists' do
       before { put :update, params: { id: contacts.first.id, contact: { first_name: 'NewName' } } }
 
       it 'updates the record' do
@@ -82,10 +81,9 @@ RSpec.describe Api::V1::ContactsController do
       it 'returns status code 200' do
         expect(response).to have_http_status(200)
       end
-    end
   end
 
-  #Testing delete for contact
+  # TESTING DELETE
   describe 'DELETE #destroy' do
     before { delete :destroy, params: { id: contacts.first.id } }
 

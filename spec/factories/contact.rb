@@ -1,3 +1,4 @@
+# SEED DATA FOR TESTS
 FactoryBot.define do
   factory :contact do
     first_name { Faker::Name.first_name }

@@ -1,8 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Contact, type: :model do
-  # Validation tests
-  # ensure columns title and created_by are present before saving
+  # VALIDATES EMAIL, FIRST NAME, LAST NAME & PHONE NUMBER
   it { should validate_presence_of(:first_name) }
   it { should validate_presence_of(:last_name) }
   it { should validate_presence_of(:phone_number) }
@@ -11,5 +10,4 @@ RSpec.describe Contact, type: :model do
   it { should allow_value("email@addresse.com").for(:email) }
   it { should_not allow_value("foo").for(:email) }
   it { should_not allow_value("foo@email").for(:email) }
-
 end

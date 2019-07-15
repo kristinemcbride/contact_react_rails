@@ -1,10 +1,10 @@
 import React from 'react';
 
-//NEWCONTACT COMPONENT
-// containing the function for adding a contact
+// NEW CONTACT COMPONENT
 const NewContactForm = ({onNewContact = f => f}) => {
   let first_name, last_name, phone_number, email
-  //Function called when form is submitted. Form values are assigned to the contact.
+
+  // function called when form is submitted, form values are assigned to the contact.
   const submit = e => {
     e.preventDefault()
     onNewContact(first_name.value, last_name.value, phone_number.value, email.value)
@@ -14,7 +14,7 @@ const NewContactForm = ({onNewContact = f => f}) => {
     email.value = ''
   }
 
-  //new contact form
+  // returns new contact form
   return (
     <div className="contact-form" id="contact-form">
       <form onSubmit={submit}>
@@ -39,9 +39,8 @@ const NewContactForm = ({onNewContact = f => f}) => {
         <div className="submit-div">
           <button className="new-contact-submit-btn">Add Contact</button>
         </div>
-        </form>
+      </form>
     </div>
   )
 }
-
 export default NewContactForm;
