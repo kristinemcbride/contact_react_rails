@@ -20,7 +20,7 @@ class App extends Component {
     return data
   }
 
-  // WAITS FOR THE APP TO FULLY LOAD
+  // waits for the app to fully load
   componentDidMount() {
     // headers formats the code as JSON
     const headers = {
