@@ -1,6 +1,5 @@
 module Api::V1
-  class Api::V1::ContactsController < ActionController::Base
-    
+  class Api::V1::ContactsController < ActionController::Base   
     before_action :set_contact, only: [:show, :update, :destroy]
     skip_before_action :verify_authenticity_token
     
