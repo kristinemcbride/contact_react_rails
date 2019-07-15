@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 //EDIT COMPONENT
 class EditContactForm extends Component {
- state = {
-   //sets the state of the Contact being edited
-    edit:{
+  state = {
+  //sets the state of the Contact being edited
+    edit: {
       id: this.props.contact.id,
       first_name: this.props.contact.first_name,
       last_name: this.props.contact.last_name,
@@ -20,14 +20,15 @@ class EditContactForm extends Component {
       edit: newObject,
     })
   }
-//when submit it clicked the edit state values are assigned to the selected contact
+  
+  //when submit it clicked the edit state values are assigned to the selected contact
   handleSubmit = (e) => {
     e.preventDefault()
     const { id, first_name, last_name, phone_number, email } = this.state.edit
     this.props.editContact(id, first_name, last_name, phone_number, email);
   }
 
-  render(){
+  render() {
       return(
         <form onSubmit={this.handleSubmit} className="edit-form-wrapper">
           <div className="edit-form-container">
