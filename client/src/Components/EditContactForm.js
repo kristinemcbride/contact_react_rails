@@ -36,32 +36,28 @@ class EditContactForm extends Component {
       <form onSubmit={this.handleSubmit} className="edit-form-wrapper">
         <div className="edit-form-container">
           <div>
-            <input  name="first_name"
-                    type="text"
-                    placeholder="first name"
-                    value={this.state.edit.first_name}
-                    onChange={this.handleChange} />
+            <input name="first_name"
+                   type="text"
+                   value={this.state.edit.first_name}
+                   onChange={this.handleChange} />
           </div>
           <div>
-            <input  name="last_name"
-                    type="text"
-                    placeholder="last name"
-                    value={this.state.edit.last_name}
-                    onChange={this.handleChange} />
+            <input name="last_name"
+                   type="text"
+                   value={this.state.edit.last_name}
+                   onChange={this.handleChange} />
           </div>
           <div>
-            <input  name="phone_number"
-                    type="text"
-                    placeholder="phone number"
-                    value={this.state.edit.phone_number}
-                    onChange={this.handleChange} />
+            <input name="phone_number"
+                   type="text"
+                   value={this.state.edit.phone_number}
+                   onChange={this.handleChange} />
           </div>
           <div>
-            <input  name="email"
-                    type="text"
-                    placeholder="email"
-                    value={this.state.edit.email}
-                    onChange={this.handleChange} />
+            <input name="email"
+                   type="text"
+                   value={this.state.edit.email}
+                   onChange={this.handleChange} />
           </div>
           <div>
             <button className="edit-btn">Update Contact</button>

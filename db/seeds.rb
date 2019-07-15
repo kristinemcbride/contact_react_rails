@@ -1,4 +1,4 @@
-
+#SEEDING DATA
 puts "destroying contacts..."
 Contact.destroy_all
 

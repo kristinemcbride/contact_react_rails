@@ -28,7 +28,7 @@ RSpec.describe Api::V1::ContactsController do
   # TESTING SHOW
   describe "GET #show" do
     before do
-      get :show, params: { id: contacts.first.id, first_name: "toto" }
+      get :show, params: { id: contacts.first.id }
       assert_routing api_v1_contact_path(contacts.first.id), controller: 'api/v1/contacts', action: 'show', format: :json, id: contacts.first.id.to_s
     end
 

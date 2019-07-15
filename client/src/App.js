@@ -31,10 +31,8 @@ class App extends Component {
 
     axios.get('/api/v1/contacts', {headers})
       .then(response => {
-        const sortedData = this.handleSort(response.data)
-        this.setState({
-          contacts: sortedData
-        })
+        const contacts = this.handleSort(response.data)
+        this.setState({ contacts })
       })
       .catch(error => alert(error.response))
     }
@@ -89,9 +87,9 @@ class App extends Component {
       const newList = this.state.contacts.filter((contact) => contact.id !== updatedContact.id)
       newList.push(updatedContact)
       // sorts contact by key, resets the contacts state with the updated info & changes the editingContactId state back to null
-      const sortedData = this.handleSort(newList)
+      const contacts = this.handleSort(newList)
       this.setState ({
-        contacts: sortedData,
+        contacts,
         editingContactId: null
       })
     })
